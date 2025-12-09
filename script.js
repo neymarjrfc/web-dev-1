@@ -36,19 +36,38 @@ function renderProjects() {
 // 3. INITIALIZE
 renderProjects();
 
-// 4. DARK MODE LOGIC
+// 4. DARK MODE LOGIC (Updated: Defaults to Dark & Remembers Choice)
 const toggleBtn = document.getElementById('toggle-btn');
 const body = document.body;
 
-if (toggleBtn) { // Safety check
+// A. Check LocalStorage on load
+// If the user has 'dark' saved OR if they are new (!currentTheme), turn on Dark Mode
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark' || !currentTheme) {
+    body.classList.add('dark-mode');
+    // Update the button look immediately
+    if (toggleBtn) {
+        toggleBtn.innerText = '🌙'; 
+        toggleBtn.style.background = '#f4f4f4';
+        toggleBtn.style.color = '#333';
+    }
+}
+
+// B. The Click Listener
+if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
+        // Toggle the class
         body.classList.toggle('dark-mode');
 
+        // Check the new state and SAVE it to memory
         if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark'); // <--- This remembers "Dark"
             toggleBtn.innerText = '🌙'; 
             toggleBtn.style.background = '#f4f4f4';
             toggleBtn.style.color = '#333';
         } else {
+            localStorage.setItem('theme', 'light'); // <--- This remembers "Light"
             toggleBtn.innerText = '☀️'; 
             toggleBtn.style.background = '#333';
             toggleBtn.style.color = '#f1c40f';

@@ -1,8 +1,10 @@
-/* =========================================
-   1. GLOBAL STYLES
-   ========================================= */
+/* 1. IMPORT GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+/* 2. APPLY FONTS GLOBALLY */
 body {
-    font-family: Arial, sans-serif;
+    /* Use Poppins for normal text */
+    font-family: 'Poppins', sans-serif; 
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
@@ -10,61 +12,136 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* =========================================
-   2. HEADER
+/* Force the Terminal & Code styles to use the Coding Font */
+.terminal-window, .subtitle, .stat-name, .hp-text, .pixel-btn, h2 {
+    font-family: 'Fira Code', monospace; 
+}
+
+
+ /* =========================================
+   NEW CYBER HEADER
    ========================================= */
-header {
-    background-color: #bb86fc;
-    color: rgb(245, 245, 245);
-    text-align: center;
-    padding: 10px;
-    border-radius: 100px;
+.cyber-header {
+    display: flex; /* Puts image and text side-by-side */
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); /* Cool gradient */
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 15px; /* Boxy look matches the terminal */
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+    position: relative;
+    overflow: hidden;
+    flex-wrap: wrap; /* Wraps on mobile */
+    gap: 30px;
+}
+
+/* --- Profile Picture with Scanner Effect --- */
+.profile-container {
+    position: relative;
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 2;
+    position: relative;
+}
+
+/* The Green "Online" Dot */
+.online-indicator {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #2ecc71; /* Bright Green */
     border: 3px solid white;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-
-.profile-img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-}
-
-h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #2c3e50;
-    padding-bottom: 10px;
-}
-
-/* =========================================
-   3. DARK MODE TOGGLE BUTTON
-   ========================================= */
-#toggle-btn {
-    position: fixed; 
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
     border-radius: 50%;
-    background-color: #333;
-    color: #f1c40f;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.5s ease;
-    z-index: 1000;
+    z-index: 3;
+    box-shadow: 0 0 10px #2ecc71; /* Glowing effect */
 }
 
-#toggle-btn:hover {
-    transform: rotate(180deg) scale(1.1);
-    background-color: #555;
+/* --- Text Styling --- */
+.header-text {
+    text-align: left;
+}
+
+.subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    background: rgba(0,0,0,0.2); /* Dark see-through box */
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    margin-top: 10px;
+}
+
+/* --- THE GLITCH EFFECT (The Cool Part) --- */
+.glitch {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    position: relative;
+    text-shadow: 2px 2px 0px #333;
+    margin: 0;
+}
+
+/* This creates the "phantom" text behind the real text */
+.glitch::before, .glitch::after {
+    content: attr(data-text); /* Copies the text automatically */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+/* The Red Ghost */
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-1 3s infinite linear alternate-reverse;
+}
+
+/* The Blue Ghost */
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+/* Glitch Animations */
+@keyframes glitch-anim-1 {
+    0% { clip: rect(20px, 9999px, 10px, 0); }
+    20% { clip: rect(50px, 9999px, 60px, 0); }
+    40% { clip: rect(10px, 9999px, 80px, 0); }
+    60% { clip: rect(80px, 9999px, 20px, 0); }
+    80% { clip: rect(30px, 9999px, 90px, 0); }
+    100% { clip: rect(60px, 9999px, 40px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(80px, 9999px, 20px, 0); }
+    20% { clip: rect(10px, 9999px, 50px, 0); }
+    40% { clip: rect(40px, 9999px, 80px, 0); }
+    60% { clip: rect(20px, 9999px, 10px, 0); }
+    80% { clip: rect(60px, 9999px, 30px, 0); }
+    100% { clip: rect(10px, 9999px, 70px, 0); }
+}
+
+/* --- Dark Mode Update --- */
+body.dark-mode .cyber-header {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    border: 1px solid #444;
 }
 
 /* =========================================
@@ -322,4 +399,45 @@ body.dark-mode .project-card { background: #2d2d2d; color: #fff; box-shadow: 0 4
     .hp-text {
         font-size: 0.8rem; /* Smaller text inside bars */
     }
+}
+
+
+
+@media (max-width: 768px) {
+    .cyber-header {
+        flex-direction: column; /* Stack them */
+        text-align: center;
+    }
+    .header-text {
+        text-align: center;
+    }
+    .glitch {
+        font-size: 2rem; /* Smaller text on phone */
+    }
+}
+
+#toggle-btn {
+    position: absolute; /* Takes it out of the flow */
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    /* keep the rest of your button styles (background, radius, etc.) */
+    z-index: 100; /* Ensures it stays on top */
+}
+
+/* =========================================
+   STEP 2 FIX: CENTER EVERYTHING
+   ========================================= */
+
+/* 1. This creates the box that holds your whole page content */
+main {
+    max-width: 1000px; /* Stops the page from getting too wide */
+    margin: 0 auto;    /* Centers that box in the middle of the screen */
+    padding: 0 20px;   /* Adds a little breathing room on the sides */
+}
+
+/* 2. This forces the RPG bars to stay inside that box */
+.rpg-stat-container {
+    max-width: 100%;   /* Fills the container, doesn't stretch past it */
 }
