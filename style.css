@@ -260,3 +260,66 @@ body.dark-mode {
 body.dark-mode h2 { color: #bb86fc; border-bottom: 2px solid #bb86fc; }
 body.dark-mode header, body.dark-mode .game-footer { background-color: #1f1f1f; }
 body.dark-mode .project-card { background: #2d2d2d; color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.5); }
+
+
+
+/* =========================================
+   9. MOBILE RESPONSIVENESS (Make it phone-friendly)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Shrink the main text so it fits */
+    body {
+        padding: 10px; /* Less padding on edges */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Smaller title */
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    /* 2. Fix the Terminal Window */
+    .terminal-section {
+        margin: 20px 0; /* Remove side margins */
+        width: 100%;    /* Use full width */
+    }
+    
+    .terminal-body {
+        padding: 15px; /* Less padding inside */
+        font-size: 0.9rem; /* Smaller font for code */
+        word-wrap: break-word; /* Prevent long text breaking layout */
+    }
+
+    /* 3. Stack the Contact Buttons vertically */
+    .contact-buttons {
+        flex-direction: column; /* Stack top-to-bottom */
+        align-items: center;
+    }
+
+    .pixel-btn {
+        width: 100%;       /* Full width buttons */
+        max-width: 300px;  /* But not TOO wide */
+        text-align: center;
+    }
+
+    /* 4. Adjust the Dark Mode Toggle */
+    #toggle-btn {
+        width: 40px;       /* Smaller button */
+        height: 40px;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+    }
+
+    /* 5. Fix RPG Bars on tiny screens */
+    .hp-bar-container {
+        max-width: 100%; /* Use available space */
+    }
+    
+    .hp-text {
+        font-size: 0.8rem; /* Smaller text inside bars */
+    }
+}
