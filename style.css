@@ -145,61 +145,135 @@ body.dark-mode .cyber-header {
 }
 
 /* =========================================
-   4. TERMINAL SECTION (THE MISSING PART)
+   NEW HOLO-CARD BIO
    ========================================= */
-.terminal-section {
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-.terminal-window {
-    background-color: #1e1e1e; /* Dark background */
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    overflow: hidden;
-    border: 1px solid #333;
-    font-family: 'Courier New', monospace;
-    text-align: left; /* Ensures text aligns left like a real terminal */
-}
-
-.terminal-header {
-    background-color: #2d2d2d;
-    padding: 10px 15px;
+.bio-section {
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid #333;
+    justify-content: center;
+    margin: 60px 0;
+    perspective: 1000px; /* Essential for 3D effect */
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-.red { background-color: #ff5f56; }
-.yellow { background-color: #ffbd2e; }
-.green { background-color: #27c93f; }
-
-.terminal-title {
-    margin-left: 10px;
-    color: #999;
-    font-size: 12px;
+.holo-card {
+    background: rgba(255, 255, 255, 0.1); /* See-through glass */
+    backdrop-filter: blur(10px);          /* Blurs background behind it */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.terminal-body {
-    padding: 20px;
-    color: #eee;
+/* The Cool 3D Hover Effect */
+.holo-card:hover {
+    transform: rotateX(5deg) rotateY(-5deg) translateY(-10px);
+    box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: #6c5ce7; /* Glows purple on hover */
 }
 
-.prompt { color: #00ff00; margin-right: 10px; }
-.output { color: #ddd; margin-bottom: 15px; margin-left: 20px; }
-.cursor { animation: blink 1s infinite; }
-
-@keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+/* A shiny reflection line that moves across */
+.holo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.5s;
 }
+
+.holo-card:hover::before {
+    left: 150%;
+    transition: 0.7s;
+}
+
+/* Typography */
+.card-title {
+    font-family: 'Fira Code', monospace;
+    color: #6c5ce7;
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: none; /* Removing default H2 underline */
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+}
+
+.stat-label {
+    color: #888;
+    font-weight: bold;
+}
+
+.stat-value {
+    color: #333;
+    font-weight: bold;
+}
+
+.card-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 20px 0;
+}
+
+.card-lore {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+
+.status-badge {
+    color: #2ecc71;
+    font-weight: bold;
+    border: 1px solid #2ecc71;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.level-badge {
+    background: #6c5ce7;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* DARK MODE ADJUSTMENTS */
+body.dark-mode .holo-card {
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .stat-label { color: #aaa; }
+body.dark-mode .stat-value { color: #fff; }
+body.dark-mode .card-lore { color: #ccc; }
+body.dark-mode .card-title { color: #a29bfe; }
 
 /* =========================================
    5. PROJECT CARDS
