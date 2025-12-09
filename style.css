@@ -16,6 +16,17 @@ header {
     border-radius: 100px;       /* Rounds the corners */
 }
 
+/* Target the image with the specific class */
+.profile-img {
+    width: 150px;        /* Force fixed width */
+    height: 150px;       /* Force fixed height */
+    border-radius: 50%;  /* The Magic Number: 50% turns a square into a perfect circle */
+    object-fit: cover;   /* Important: This crops the image so it doesn't look squashed */
+    border: 3px solid white; /* Adds a nice frame around the photo */
+    margin-bottom: 10px; /* Adds some space between photo and text */
+}
+
+
 /* This targets all <h2> headings */
 h2 {
     color: #2c3e50;
