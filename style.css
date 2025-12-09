@@ -1,0 +1,70 @@
+/* This selects the entire body (the whole page) */
+body {
+    font-family: Arial, sans-serif; /* Changes the font */
+    background-color: #f4f4f4;      /* A light grey background */
+    color: #333;                    /* Dark grey text (easier on eyes than black) */
+    margin: 0;
+    padding: 20px;
+}
+
+/* This targets the <header> section specifically */
+header {
+    background-color: #bb86fc; /* Dark Blue */
+    color: rgb(245, 245, 245);              /* White text */
+    text-align: center;        /* Centers the text */
+    padding: 10px;
+    border-radius: 100px;       /* Rounds the corners */
+}
+
+/* This targets all <h2> headings */
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50; /* Adds a line under headings */
+}
+
+/* This targets the lists */
+ul {
+    background-color: white;
+    padding: 20px;
+    border-left: 5px solid #bb86fc; /* A red accent bar on the left */
+    
+}
+
+footer {
+        background-color: #bb86fc;
+        color: rgb(248, 248, 248);
+        text-align: center;
+        padding: 20px;
+        border-radius: 100px;
+
+}
+
+/* --- Dark Mode Configuration --- */
+
+/* When the body has the class "dark-mode", apply these rules */
+body.dark-mode {
+    background-color: #121212; /* A softer black */
+    color: #e0e0e0;            /* Soft white text */
+}
+
+/* Update the list boxes in dark mode */
+body.dark-mode ul {
+    background-color: #1e1e1e; /* Dark grey box */
+    border-left: 5px solid #bb86fc; /* Change accent color to purple */
+    color: #e0e0e0;
+}
+
+/* Update the headings in dark mode to be readable */
+body.dark-mode h2 {
+    color: #bb86fc; /* Light purple matches the accent */
+    border-bottom: 2px solid #bb86fc;
+}
+
+/* Update the header box in dark mode */
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+}
