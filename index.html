@@ -20,35 +20,103 @@
         <img src="profile.jpg" alt="Profile Photo" class="profile-img">
         <h1>Welcome to My Portfolio</h1>
         <p>From C logic to Web Magic</p>
-        <button id="toggle-btn">Switch Theme</button>
+        <button id="toggle-btn">☀️</button>
     </header>
 
     <hr> <main>
-        <section>
-            <h2>About Me</h2>
-            <p>I am a developer with a background in C programming. I understand memory management, pointers, and algorithms.</p>
-        </section>
-
+       <section class="terminal-section">
+    <h2>> Player_Bio.exe</h2>
+    
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="terminal-title">Tanmai@portfolio:~</span>
+        </div>
+        <div class="terminal-body">
+            <p><span class="prompt">C:\></span> ./whoami</p>
+            <p class="output">"A logic-obsessed developer leveling up in C++ and Web Tech."</p>
+            
+            <p><span class="prompt">C:\></span> cat mission.txt</p>
+            <p class="output">Current Objective: Master Data Structures & Algorithms.</p>
+            <p class="output">Guild: IIIT Nagpur 'dotslash' Club.</p>
+            
+            <p><span class="prompt">C:\></span> _<span class="cursor">|</span></p>
+        </div>
+    </div>
+</section>
         <section>
             <h2>My Projects</h2>
-            
-                <ul id="project-list">
+            <div class="project-grid">
+    <div class="project-card">
+        <h3>Library Manager</h3>
+        <p>A C-based system to track books, authors, and borrowing history using file handling.</p>
+        <span class="tech-tag">C Language</span>
+    </div>
 
+    <div class="project-card">
+        <h3>Tic-Tac-Toe</h3>
+        <p>A classic console game with logic for win checking and draw conditions.</p>
+        <span class="tech-tag">C Logic</span>
+    </div>
+
+    <div class="project-card">
+        <h3>Portfolio Site</h3>
+        <p>My personal developer portfolio built with semantic HTML, CSS animations, and JS.</p>
+        <span class="tech-tag">HTML/CSS</span>
+    </div>
+</div>
+                
         </section>
-        <section>
-            <h2> Skills </h2>
-            <ul>
-                <li>90 wpm </li> 
-                <li>Experience using AI tools for learning</li>              
-            </ul>
-        </section>
+        <section class="rpg-section">
+    <h2>Character Stats (Skills)</h2>
+    
+    <div class="rpg-stat-container">
+        <div class="rpg-stat">
+            <span class="stat-name">C++ Mastery</span>
+            <div class="hp-bar-container">
+                <div class="hp-bar-fill" style="width: 90%;"></div>
+                <span class="hp-text">900 / 1000 XP</span>
+            </div>
+        </div>
+
+        <div class="rpg-stat">
+            <span class="stat-name">Web Dev (HTML/CSS)</span>
+            <div class="hp-bar-container">
+                <div class="hp-bar-fill blue-mana" style="width: 70%;"></div>
+                <span class="hp-text">Level 12 Mage</span>
+            </div>
+        </div>
+
+        <div class="rpg-stat">
+            <span class="stat-name">Typing Speed</span>
+            <div class="hp-bar-container">
+                <div class="hp-bar-fill green-stamina" style="width: 95%;"></div>
+                <span class="hp-text">90 WPM (Berserk Mode)</span>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <hr>
 
-    <footer>
-        <p>Contact: tanmaielapakurthi@gmail.com</p>
-    </footer>
+    <footer class="game-footer">
+    <h2>Ready to Start a New Game?</h2>
+    <p>Select your connection method:</p>
+    
+    <div class="contact-buttons">
+        <a href="upi://pay?pa=8125951777@ybl&pn=Tanmai&cu=INR" class="pixel-btn">
+    <span class="btn-icon">💰</span> Send Donations
+</a>
+        <a href="https://www.instagram.com/e.tanmai3/" target="_blank" class="pixel-btn">
+    <span class="btn-icon">🤝</span> Join Me in my journey.....
+</a>
+    </div>
+    
+    <p class="credits">© 2025 Tanmai. Built with caffeine & logic.</p>
+</footer>
 <script src="script.js"></script>
 </body>
 </body>
